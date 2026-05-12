@@ -118,11 +118,11 @@ export default function CourseContentManagement({ params }) {
   if (loading) return <div className="p-10 text-center">Loading course structure...</div>;
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8 py-6">
+    <div className="max-w-5xl mx-auto space-y-6 py-4 px-4">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">{course.title}</h1>
-          <p className="text-gray-500">Manage modules and video lessons</p>
+          <h1 className="text-2xl font-bold text-gray-900">{course.title}</h1>
+          <p className="text-gray-500 text-sm">Manage modules and video lessons</p>
         </div>
         
         <Dialog open={moduleModalOpen} onOpenChange={setModuleModalOpen}>
@@ -149,8 +149,8 @@ export default function CourseContentManagement({ params }) {
 
       <div className="space-y-4">
         {course.modules.sort((a, b) => a.order - b.order).map((module) => (
-          <Card key={module.id} className="border-l-4 border-l-blue-500">
-            <CardHeader className="flex flex-row items-center justify-between py-4">
+          <Card key={module.id} className="border-l-4 border-l-blue-500 shadow-sm border-gray-100">
+            <CardHeader className="flex flex-row items-center justify-between py-3 px-4">
               <CardTitle className="text-lg flex items-center gap-2">
                 <div className="bg-blue-100 text-blue-600 p-1.5 rounded text-xs">MOD</div>
                 {module.title}
@@ -178,10 +178,10 @@ export default function CourseContentManagement({ params }) {
                 </Button>
               </div>
             </CardHeader>
-            <CardContent className="pt-0 pb-4">
-              <div className="space-y-2 border-t pt-4">
+            <CardContent className="pt-0 pb-3 px-4">
+              <div className="space-y-1.5 border-t pt-3">
                 {module.lessons.sort((a, b) => a.order - b.order).map((lesson) => (
-                  <div key={lesson.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg group">
+                  <div key={lesson.id} className="flex items-center justify-between p-2.5 bg-gray-50 rounded-lg group border border-transparent hover:border-gray-100 transition-all">
                     <div className="flex items-center gap-3">
                       <Video className="h-4 w-4 text-gray-400" />
                       <div>
